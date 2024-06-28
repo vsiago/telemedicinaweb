@@ -28,32 +28,43 @@ const LoginPage = () => {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
+    <section className="h-screen bg-emerald-400 flex flex-col items-center justify-center ">
+      <h1 className="text-xl text-white font-semibold">Acesse sua conta</h1>
+      <form
+        onSubmit={handleLogin}
+        className="flex flex-col gap-y-2 text-white w-full px-10 mt-10"
+      >
         <input
+          className="p-2 w-full rounded-xl bg-white/60 border-2 border-white"
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          gap-y-2
+          text-white
         />
         <input
+          className="p-2 w-full rounded-xl bg-white/60 border-2 border-white"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button
+          className="w-full bg-white rounded-lg p-2 text-neutral-500"
+          type="submit"
+        >
+          Login
+        </button>
       </form>
-      <p>
-        Ainda não tem uma conta? <Link href="/signup">Cadastre-se aqui</Link>
+      <p className="text-sm mt-20 text-white">
+        Ainda não tem uma conta? <br />{" "}
+        <Link className="font-bold" href="/signup">
+          Cadastre-se aqui
+        </Link>
       </p>
-    </div>
+    </section>
   );
 };
 
